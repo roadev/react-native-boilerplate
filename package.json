@@ -1,10 +1,11 @@
 {
-  "name": "rn_boilerplate",
+  "name": "ReactNativeBoilerplate",
   "version": "0.0.1",
+  "author": "Juan Roa",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "dependencies": {
     "immutable": "^3.8.2",
