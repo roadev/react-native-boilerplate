@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -16,8 +15,8 @@ const styles = StyleSheet.create({
 class DrawerContent extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Title: title</Text>
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
         {/* <Button onPress={Actions.pop}>Back</Button> */}
       </View>
     )
