@@ -9,6 +9,7 @@ import {
 } from 'react-native-router-flux'
 
 import DrawerContent from './components/drawer'
+import Posts from './components/Posts'
 
 
 const reducerCreate = params => {
@@ -42,14 +43,6 @@ const styles = {
   },
 }
 
-const Scene1 = () => (
-  <View>
-    <Text>
-      Hi!
-    </Text>
-  </View>
-)
-
 export const Routes = () => (
   <Router
     createReducer={reducerCreate}
@@ -71,16 +64,9 @@ export const Routes = () => (
       }
     >
       <Scene
-        key="scene1"
-        title="Scene 1"
-        // navbar={
-        //   <Header
-        //     leftComponent={{ icon: 'menu', color: '#fff' }}
-        //     centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-        //     rightComponent={{ icon: 'home', color: '#fff' }}
-        //   />
-        // }
-        component={Scene1}
+        key="posts"
+        title="Posts"
+        component={Posts}
       />
     </Drawer>
   </Router>
