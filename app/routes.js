@@ -1,4 +1,6 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import store from './store'
 import { View, Text } from 'react-native'
 import { Icon, Header } from 'react-native-elements'
 import {
@@ -9,7 +11,7 @@ import {
 } from 'react-native-router-flux'
 
 import DrawerContent from './components/drawer'
-import Posts from './components/Posts'
+import Posts from './components/Posts/container'
 
 
 const reducerCreate = params => {
@@ -44,32 +46,34 @@ const styles = {
 }
 
 export const Routes = () => (
-  <Router
-    createReducer={reducerCreate}
-    getSceneStyle={getSceneStyle}
-    navigationBarStyle={styles.navBar}
-    titleStyle={styles.navBarTitle}
-    barButtonTextStyle={styles.barButtonTextStyle}
-    barButtonIconStyle={styles.barButtonIconStyle}
-  >
-    <Drawer
-      key="drawer"
-      contentComponent={DrawerContent}
-      drawerWidth={250}
-      drawerIcon={
-        <Icon
-          name='menu'
-          color='#FFFFFF'
-        />
-      }
+  <Provider store={store}>
+    <Router
+      createReducer={reducerCreate}
+      getSceneStyle={getSceneStyle}
+      navigationBarStyle={styles.navBar}
+      titleStyle={styles.navBarTitle}
+      barButtonTextStyle={styles.barButtonTextStyle}
+      barButtonIconStyle={styles.barButtonIconStyle}
     >
-      <Scene
-        key="posts"
-        title="Posts"
-        component={Posts}
-      />
-    </Drawer>
-  </Router>
+      <Drawer
+        key="drawer"
+        contentComponent={DrawerContent}
+        drawerWidth={250}
+        drawerIcon={
+          <Icon
+            name='menu'
+            color='#FFFFFF'
+          />
+        }
+      >
+        <Scene
+          key="posts"
+          title="Posts"
+          component={Posts}
+        />
+      </Drawer>
+    </Router>
+  </Provider>
 )
 
     export default Routes
